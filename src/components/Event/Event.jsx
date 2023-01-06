@@ -4,7 +4,8 @@ import { formatEventStart, formatEventDuration } from 'utils';
 //import { formatEventStart } from 'utils/formatEventStart'
 //import { formatEventDuration } from 'utils/formatEventDuraction'
 import { iconSize } from 'constants'
-import css from './Event.module.css';
+import { Card, EventName, Info, Chip } from './Event.styled'
+//import css from './Event.module.css';
 
 export const Event = ({ name, location, speaker, type, start, end }) => {
   const formattedStart = formatEventStart(start);
@@ -13,26 +14,26 @@ export const Event = ({ name, location, speaker, type, start, end }) => {
   //console.log(css)
   //console.log(css[type])
     return (
-        <div className={css.event}>
-          <h2 className={css.title}>{name}</h2>
-          <p className={css.info}>
-            <FaMapMarkerAlt className={css.icon} size={iconSize.sm}/>
+        <Card /*className={css.event}*/>
+          <EventName /*className={css.title}*/>{name}</EventName>
+          <Info /*className={css.info}*/>
+            <FaMapMarkerAlt /*className={css.icon}*/ size={iconSize.sm}/>
             {location}
-          </p>
-          <p className={css.info}>
-            <FaUserAlt className={css.icon} size={iconSize.sm}/>
+          </Info>
+          <Info /*className={css.info}*/>
+            <FaUserAlt /*className={css.icon}*/ size={iconSize.sm}/>
             {speaker}
-          </p>
-          <p className={css.info}>
-            <FaCalendarAlt className={css.icon} size={iconSize.sm}/>
+          </Info>
+          <Info>
+            <FaCalendarAlt /*className={css.icon}*/ size={iconSize.sm}/>
             {formattedStart}
-          </p>
-          <p className={css.info}>
-            <FaClock className={css.icon} size={iconSize.sm}/>
+          </Info>
+          <Info>
+            <FaClock /*className={css.icon}*/ size={iconSize.sm}/>
             {duration}
-          </p>
-          <span className={`${css.chip} ${css[type]}`}>{type}</span>
-        </div>
+          </Info>
+          <Chip eventType={type} a={5} b={10}/*className={`${css.chip} ${css[type]}`}*/>{type}</Chip>
+        </Card>
       );
 }
 
